@@ -63,11 +63,27 @@ a:active {
 
 ul.nav li {
   display: inline-block;
+  position: relative;
 }
 
 .nav-left a {
   color: rgba(0, 0, 0, 0.7);
   margin: 0 5px;
+}
+
+.nav-left li::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #9e75ff;
+  transition: all ease-in-out 300ms;
+  position: absolute;
+  left: 5px;
+}
+
+.nav-left li:hover::after {
+  width: 70%;
 }
 
 .header ul a.active {
@@ -105,6 +121,10 @@ ul.nav li {
   width: 100%;
   height: auto;
   margin-top: -10px;
+}
+
+.profile-image:hover {
+  opacity: 0.7;
 }
 
 .notification {
@@ -157,10 +177,46 @@ ul.nav li {
 .graph {
   margin-top: 20px;
   text-align: center;
+  position: relative;
 }
 
 .graph img {
   width: 100%;
+}
+
+.graph-dot {
+  display: inline-block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+  min-height: 8px;
+  border-radius: 50%;
+  background-color: #938ced;
+}
+
+.graph .tooltip-text {
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 110%;
+}
+
+.graph .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
 }
 
 /*Menu*/
@@ -199,7 +255,7 @@ ul.nav li {
   background-color: white;
   position: relative;
   display: grid;
-  grid-template-columns:  1.3fr 1.4fr 1.5fr;
+  grid-template-columns: 1.2fr 1.2fr 1.344fr;
   grid-column-gap: 5px;
   padding: 2.2rem .9rem 1.3rem .9rem;
   font-size: 0.875rem;
@@ -315,6 +371,12 @@ ul.nav li {
   .grid-container {
     grid-template-columns: 30% 30% 30%;
     justify-content: center;
+  }
+
+  .users {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
   }
 
   .new-users {
