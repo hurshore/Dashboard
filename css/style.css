@@ -6,7 +6,8 @@
 body {
   margin: 20px 0 0 0;
   padding: 0;
-  background-color: #a3a7fd;
+  background: url(../images/blob.svg) no-repeat center center fixed, linear-gradient(to left, rgb(157, 162, 250), rgb(191, 194, 252) 80%);
+  /* background-color: #a3a7fd; */
 }
 
 a {
